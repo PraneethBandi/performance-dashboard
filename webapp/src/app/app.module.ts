@@ -10,4 +10,13 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  tester: string;
+  constructor() {
+    this.tester = "asdasd";  
+  }
+  test() {
+    console.log("sdasas");
+  }
+  
+ }
