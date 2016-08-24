@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/PraneethBandi/performance-dashboard/issues"
   },
-  "homepage": "https://github.com/PraneethBandi/performance-dashboard#readme"
+  "homepage": "https://github.com/PraneethBandi/performance-dashboard#readme",
+  "devDependencies": {
+    
+  }
 }
