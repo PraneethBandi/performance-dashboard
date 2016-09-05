@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var DBservice = require('../Services/dbservice');
 
 var options = {
     root: __dirname + '/public/',
@@ -16,6 +17,7 @@ var options = {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
+  DBservice.connect();
   res.sendFile(fileName, options, function (err) {
     if (err) {
       console.log(err);

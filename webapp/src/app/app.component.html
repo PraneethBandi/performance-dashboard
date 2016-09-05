@@ -1,4 +1,20 @@
-<main>
-  <h1>Hello from Angular 2 App with Webpack</h1>
-  <img src="../../public/images/angular.png">
-</main>
+<div>
+    
+    <!--<img src="../../public/images/angular.png">-->
+    <div class="row">
+      <div class="col-md-6">
+        <base-chart class="chart"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColours"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></base-chart>
+      </div>
+    </div>
+    <div>
+      <button (click)="randomize()">CLICK</button>
+    </div>
+  </div>
