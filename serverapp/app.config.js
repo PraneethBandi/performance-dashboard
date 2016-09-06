@@ -1,4 +1,4 @@
 var appconfig = {
-    "mongodbConnectionString": "mongodb://skyd-vap-mdbp1.devop.vertafore.com/perfdashboard"
+    "mongodbConnectionString": "mongodb://localhost/perfdashboard"
 }
 module.exports = appconfig;
