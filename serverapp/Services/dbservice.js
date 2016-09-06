@@ -21,8 +21,6 @@ dbservice.InsertBulk = function (data, collectionName, callback) {
 };
 
 
-
-
 var insertDocuments = function (data, db, collection, callback) {
     
     var collection = db.collection(collection);

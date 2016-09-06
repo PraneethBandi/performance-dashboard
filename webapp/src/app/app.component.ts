@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import '../../public/css/styles.css';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
+import './app.component.css';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
 })
 export class AppComponent { 
   // lineChart
   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series asdfasdasdfasdfasdfasdfasda asdfasdf sadfasdf asdfasd asdfasd A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
     {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
   ];
@@ -22,24 +23,24 @@ export class AppComponent {
   };
   public lineChartColours:Array<any> = [
     { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
+      backgroundColor: 'rgba(255,255,255,0.2)',
+      borderColor: '#61dc88',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     },
     { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
+      backgroundColor: 'rgba(255,255,255,0.2)',
+      borderColor: '#41a3ca',
       pointBackgroundColor: 'rgba(77,83,96,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)'
     },
     { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
+      backgroundColor: 'rgba(255,255,255,0.2)',
+      borderColor: '#ef6363',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',

@@ -8,4 +8,6 @@ main {
 
 .chart{
   width: 70%;
+  height: 50%;
+  display: block;
 }
