@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
 var DBservice = require('../Services/dbservice');
-//DBservice.connect();
-
-//var RunModel = require('../models/runModel');
-//var ServiceResponse = require('../models/serviceResponseModel');
 
 router.use(function (req, res, next) {
   console.log("request -" + req);
@@ -36,21 +31,6 @@ router.route('/run')
     else {
       resp.send(500, "Invalid data");
     }
-    
-    //   run = new RunModel();
-    //   run.id = req.body.id;
-    //   run.name = req.body.name;
-    //   run.starttime = req.body.starttime;
-    //   run.ellapsed = req.body.ellapsed;
-    //   run.metadata = req.body.metadata;
-
-    //   run.save(function (err) {
-    //     if (err)
-    //       resp.send(err);
-    //     else
-    //       resp.json(run);
-    //   });
-
   });
 
 router.route('/run/:runId')
