@@ -1,15 +1,73 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import '../../public/css/styles.css';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 import './app.component.css';
+var _ = require('lodash');
+
+import {dataservice} from './services/dataservice';
+import {Grid} from './gridComponent/grid.component'
+
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES, Grid],
+  providers: [dataservice]
 })
-export class AppComponent { 
+export class AppComponent implements OnInit { 
+  
+  constructor(private service: dataservice) { 
+  };
+
+  public getRunData(): void{
+    this.service.getRuns()
+      .then(girdData => this.datasource = Array.from(girdData.json()))
+      .catch(function(err){
+        console.log("error------" + err);
+      });
+  }
+
+  ngOnInit(): void {
+    this.getRunData();
+  }
+
+  public girdData: Array<any>;
+  public datasource: Array<any>;
+
+  public girdSettings = {
+    rowHeight: '40px',
+    columns: [
+      {
+        name: 'id',
+        title: 'ID',
+        width: '50px'
+      },
+      {
+        name: 'name',
+        title: 'Run Name',
+        width: '50px'
+      },
+      {
+        name: 'starttime',
+        title: 'SarttTime',
+        width: '50px'
+      },
+      {
+        name: 'elapsed',
+        title: 'Elapsed(sec)',
+        width: '50px'
+      },
+      {
+        name: 'metadata',
+        title: "Description",
+        width: '200px'
+      }
+    ]
+  };
+
+  
+
   // lineChart
   public lineChartData:Array<any> = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series asdfasdasdfasdfasdfasdfasda asdfasdf sadfasdf asdfasd asdfasd A'},
@@ -69,4 +127,6 @@ export class AppComponent {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  
 }

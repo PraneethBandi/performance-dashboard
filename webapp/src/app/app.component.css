@@ -11,3 +11,28 @@ main {
   height: 50%;
   display: block;
 }
+
+.grid{
+  display:block;
+  width:700px;
+}
+
+.header{
+  height: 50px;
+  width:100%;
+}
+
+.header-column{
+  display: inline-block;
+  font-weight: bold;
+  border: 1px solid grey;
+}
+
+.grid-body{
+  height: 600px;
+}
+
+.grid-row .header-column{
+  font-weight: 300;
+  border-bottom: 1px solid black;
+}

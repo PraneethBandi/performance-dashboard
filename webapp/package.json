@@ -4,7 +4,7 @@
   "description": "web app for performance dashboard",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "build": "rimraf ../serverapp/public dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install"
   },
   "license": "MIT",
@@ -19,6 +19,7 @@
     "@angular/router": "3.0.0-rc.1",
     "chart.js": "^2.2.2",
     "core-js": "^2.4.0",
+    "lodash": "^4.15.0",
     "ng2-charts": "^1.1.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
@@ -32,9 +33,11 @@
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
     "jasmine-core": "^2.4.1",
+    "node-sass": "^3.9.3",
     "null-loader": "^0.1.1",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.1",
     "typescript": "^1.8.10",

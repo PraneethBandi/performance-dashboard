@@ -12,11 +12,19 @@ router.get('/', function (req, res, next) {
   res.send('Api endpint is up and running....');
 });
 
+
 router.route('/run')
   
   //get
   .get(function (req, resp) {
-    resp.send("not implemented");
+    DBservice.getServiceRuns(function (err, data) {
+      if (err) {
+        resp.send(err);
+      }
+      else {
+        resp.json(data); 
+      }
+    });
   })
 
   //post
@@ -36,7 +44,15 @@ router.route('/run')
 router.route('/run/:runId')
   //get
   .get(function (req, resp) {
-    resp.send("not implemented");
+    var runId = req.params.runId;
+    DBservice.getServiceRunsById(runId, function (err, data) {
+      if (err) {
+        resp.send(err);
+      }
+      else {
+        resp.json(data); 
+      }
+    });
   })
 
   //post

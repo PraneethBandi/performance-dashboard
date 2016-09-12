@@ -3,7 +3,8 @@
     <base-chart class="chart" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColours"
       [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></base-chart>
   </div>
-  <div>
-    <button (click)="randomize()">CLICK</button>
+  <div class="container-div">
+    <grid [gridSettings]="girdSettings" [gridData]="datasource" ></grid>
+    <!--<button (click)="randomize()">CLICK</button>-->
   </div>
 </div>
