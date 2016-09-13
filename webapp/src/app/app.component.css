@@ -9,30 +9,13 @@ main {
 .chart{
   width: 70%;
   height: 50%;
-  display: block;
+  display: none;
 }
 
-.grid{
-  display:block;
-  width:700px;
+table tr>td:nth-child(1) {
+    font-weight: bold;
+    cursor: pointer;
+    color: #19B5FE;
 }
 
-.header{
-  height: 50px;
-  width:100%;
-}
 
-.header-column{
-  display: inline-block;
-  font-weight: bold;
-  border: 1px solid grey;
-}
-
-.grid-body{
-  height: 600px;
-}
-
-.grid-row .header-column{
-  font-weight: 300;
-  border-bottom: 1px solid black;
-}

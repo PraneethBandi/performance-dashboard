@@ -1,4 +1,3 @@
-import { NG2_SMART_TABLE_DIRECTIVES } from 'ng2-smart-table';
 import { Component, Input } from '@angular/core';
 import {CORE_DIRECTIVES, NgClass} from '@angular/common';
 

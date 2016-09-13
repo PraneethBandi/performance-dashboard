@@ -1,5 +1,22 @@
-<div class="grid">
-    <div class="header">
+<div class="panel panel-primary">
+    <div class="panel-heading">{{gridSettings.gridPanelHeading}}</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let item of gridSettings.columns;">
+                    {{item.title}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of gridData; let i= $index">
+                <td (click)="i==0?runclick(row):return false;" *ngFor="let item of gridSettings.columns;">
+                    {{row[item.name]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--<div class="header">
         <div *ngFor="let item of gridSettings.columns;" class="header-column" [style.width]=item.width>
             <span>{{item.title}}</span>
         </div>
@@ -12,5 +29,5 @@
             </div>
 
         </div>
-    </div>
+    </div>-->
 </div>

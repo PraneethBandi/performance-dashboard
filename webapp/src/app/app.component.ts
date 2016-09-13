@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
 
   public girdSettings = {
     rowHeight: '40px',
+    gridPanelHeading: 'Service Runs',
     columns: [
       {
         name: 'id',
