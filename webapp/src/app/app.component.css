@@ -12,10 +12,14 @@ main {
   display: none;
 }
 
-table tr>td:nth-child(1) {
+.rundetails tr>td:nth-child(1) {
     font-weight: bold;
     cursor: pointer;
     color: #19B5FE;
+}
+
+.section{
+    margin: 20px auto;
 }
 
 

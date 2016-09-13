@@ -34,6 +34,9 @@ export class AppComponent implements OnInit {
 
   public girdData: Array<any>;
   public datasource: Array<any>;
+  
+  runGroups: Array<any> = [];
+  showRunDetails: boolean = false;
 
   public girdSettings = {
     rowHeight: '40px',
@@ -67,7 +70,72 @@ export class AppComponent implements OnInit {
     ]
   };
 
-  
+  getRunDetails(runData: any) {
+    this.service.getRunDetails(runData.id)
+      .then(girdData => this.parseRunDetails(Array.from(girdData.json())))
+      .catch(function(err){
+        console.log("error------" + err);
+      });
+  }
+
+  addAvgNumbers(items: Array<any>): any {
+    let mean = _.meanBy(items, 'elapsedNumber');
+    items.push({
+      body: 'Mean time',
+      elapsed: mean
+    });
+    return items;
+  }
+
+  parseRunDetails(list: Array<any>): void{
+    if (!list)
+      return;
+    
+    let groupsList: Array<any> = [];
+    let columns: Array<any> = [];
+    let _this = this;
+
+    _.forEach(list, function (item: any) {
+      let i = _.round((item.elapsed / 1000), 3);
+      item.elapsed = i + ' sec';
+      item.elapsedNumber = i;
+    })
+    
+    let groups = _.groupBy(list, 'uri');
+    _.forEach(groups, function (value: Array<any>, key: string) {
+
+      groupsList.push({
+        girdSettings: {
+          gridPanelHeading: key.replace(/&/g, " ")
+        },
+        datasource: _this.addAvgNumbers(value)
+      });
+    });
+
+      if (groupsList.length > 0) {
+        let data = groupsList[0].datasource[0]
+        _.forEach(data, function (value: string, key: string) {
+          if (key !== '_id' && key !== 'id' && key !== 'request' && key !== 'uri' && key !== 'exception') {
+            columns.push({
+              name: key,
+              title: key
+            });
+          }
+        });
+
+        _.forEach(groupsList, function (item:any) {
+          item.girdSettings.columns = columns;
+        });
+
+        this.showRunDetails = true;
+        this.runGroups = groupsList;
+      }
+
+   
+
+    console.log(groupsList);
+  }
+
 
   // lineChart
   public lineChartData:Array<any> = [

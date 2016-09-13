@@ -3,8 +3,15 @@
     <base-chart class="chart" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColours"
       [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></base-chart>
   </div>
-  <div class="container">
-    <grid [gridSettings]="girdSettings" [gridData]="datasource" class="col-md-11" ></grid>
+  <div class="container section">
+    <grid [gridSettings]="girdSettings" [gridData]="datasource" class="col-md-11 rundetails" (runSelected)="getRunDetails($event)"></grid>
     <!--<button (click)="randomize()">CLICK</button>-->
   </div>
+
+  <div *ngIf="showRunDetails">
+    <div class="container section" *ngFor="let item of runGroups" >
+      <grid [gridSettings]="item.girdSettings" [gridData]="item.datasource" class="col-md-11" ></grid>
+    </div>
+  </div>
+
 </div>
