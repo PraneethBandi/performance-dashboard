@@ -9,7 +9,7 @@ main {
 .chart{
   width: 70%;
   height: 50%;
-  display: none;
+  display: block;
 }
 
 .rundetails tr>td:nth-child(1) {

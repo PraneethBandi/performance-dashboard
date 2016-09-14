@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import '../../public/css/styles.css';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
-import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 import './app.component.css';
 var _ = require('lodash');
 
 import {dataservice} from './services/dataservice';
 import {Grid} from './gridComponent/grid.component'
+import {MyChart} from './chartComponent/chart.component';
 
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES, Grid],
+  directives: [NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES, Grid, MyChart],
   providers: [dataservice]
 })
 export class AppComponent implements OnInit { 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
         console.log("error------" + err);
       });
   }
-
+  
   ngOnInit(): void {
     this.getRunData();
   }
@@ -37,6 +37,12 @@ export class AppComponent implements OnInit {
   
   runGroups: Array<any> = [];
   showRunDetails: boolean = false;
+  chartDatalist: Array<any> = [{
+    data: [12, 19, 3, 5, 2, 3]
+  },
+  {
+    data: [10, 12, 12, 6, 7, 15]
+  }];
 
   public girdSettings = {
     rowHeight: '40px',
