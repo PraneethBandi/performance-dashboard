@@ -38,10 +38,25 @@ export class AppComponent implements OnInit {
   runGroups: Array<any> = [];
   showRunDetails: boolean = false;
   chartDatalist: Array<any> = [{
-    data: [12, 19, 3, 5, 2, 3]
+    data: [1, 19, 3, 5, 2, 3]
   },
   {
-    data: [10, 12, 12, 6, 7, 15]
+    data: [2, 12, 12, 6, 7, 15, 12]
+    },
+  {
+    data: [3, 12, 14, 6, 7, 15]
+  },
+  {
+    data: [4, 7, 12, 6, 7, 3]
+  },
+  {
+    data: [5, 12, 8, 6, 7, 8]
+  },
+  {
+    data: [6, 12, 1, 6, 7, 4]
+  },
+  {
+    data: [7, 12, 8, 6, 7,11]
   }];
 
   public girdSettings = {
@@ -88,7 +103,7 @@ export class AppComponent implements OnInit {
     let mean = _.meanBy(items, 'elapsedNumber');
     items.push({
       body: 'Mean time',
-      elapsed: mean
+      elapsed: _.round(mean, 3)
     });
     return items;
   }

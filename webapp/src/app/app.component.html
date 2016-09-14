@@ -1,8 +1,8 @@
 <div>
-  <div>
-    <!--<base-chart class="chart" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColours"
+  <div class="container">
+    <!--<base-chart class="chart col-md-11" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColours"
       [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></base-chart>-->
-      <chart class="chart" [chartDatasources]="chartDatalist"></chart>
+      <chart class="chart col-md-11" [chartDatasources]="chartDatalist"></chart>
   </div>
   <div class="container section">
     <grid [gridSettings]="girdSettings" [gridData]="datasource" class="col-md-11 rundetails" (runSelected)="getRunDetails($event)"></grid>
